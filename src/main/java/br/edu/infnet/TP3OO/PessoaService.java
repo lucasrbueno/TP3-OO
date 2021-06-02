@@ -16,11 +16,11 @@ public class PessoaService {
     public Pessoa register(String nome, String email, String telefone, String cep){
     	CEPClient pc = new CEPClient();
     	CEP endereco = pc.buscaCEP(cep);
-    	String cep1 = endereco.getCep();
+    	String cepClasse = endereco.getCep();
     	String logradouro = endereco.getLogradouro();
     	String bairro = endereco.getBairro();
     	String localidade = endereco.getLocalidade();
-    	return this.pr.save(new Pessoa(nome, email, telefone, cep1, logradouro, bairro, localidade));
+    	return this.pr.save(new Pessoa(nome, email, telefone, cepClasse, logradouro, bairro, localidade));
     }
     
     @Transactional(readOnly = true)

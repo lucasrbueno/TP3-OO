@@ -34,18 +34,12 @@ public class Pessoa {
         this.localidade = localidade;
     }
 
-    @Override
-    public String toString() {
-        return "Pessoa [id=" + id + ", nome=" + nome + ", email=" + email + ", telefone=" + telefone + ", cep=" + cep
-                        + ", logradouro=" + logradouro + ", bairro=" + bairro + ", localidade=" + localidade + "]";
-    }
-
     public int getId() {
-            return id;
+        return id;
     }
 
     public void setId(int id) {
-            this.id = id;
+        this.id = id;
     }
 
     public String getNome() {
@@ -57,20 +51,25 @@ public class Pessoa {
     }
 
     public String getEmail() {
-            return email;
+        return email;
     }
 
     public void setEmail(String email) {
-            this.email = email;
+        this.email = email;
     }
 
     public String getTelefone() {
-            return telefone;
+        return telefone;
     }
 
     public void setTelefone(String telefone) {
-            this.telefone = telefone;
+        this.telefone = telefone;
     }
 
+    @Override
+    public String toString() {
+        return "Pessoa [id=" + id + ", nome=" + nome + ", email=" + email + ", telefone=" + telefone + ", cep=" + cep
+                        + ", logradouro=" + logradouro + ", bairro=" + bairro + ", localidade=" + localidade + "]";
+    }
 
 }
