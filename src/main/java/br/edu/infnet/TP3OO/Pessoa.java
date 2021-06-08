@@ -43,11 +43,11 @@ public class Pessoa {
     }
 
     public String getNome() {
-            return nome;
+        return nome;
     }
 
     public void setNome(String nome) {
-            this.nome = nome;
+        this.nome = nome;
     }
 
     public String getEmail() {
@@ -66,10 +66,41 @@ public class Pessoa {
         this.telefone = telefone;
     }
 
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public String getLogradouro() {
+        return logradouro;
+    }
+
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getLocalidade() {
+        return localidade;
+    }
+
+    public void setLocalidade(String localidade) {
+        this.localidade = localidade;
+    }
+    
     @Override
     public String toString() {
         return "Pessoa [id=" + id + ", nome=" + nome + ", email=" + email + ", telefone=" + telefone + ", cep=" + cep
                         + ", logradouro=" + logradouro + ", bairro=" + bairro + ", localidade=" + localidade + "]";
     }
-
 }

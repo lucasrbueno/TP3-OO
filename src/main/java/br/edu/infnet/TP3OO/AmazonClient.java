@@ -20,12 +20,10 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 
 @Service
 public class AmazonClient {
-    private AmazonS3 s3client = AmazonS3ClientBuilder.standard()
+    private final AmazonS3 s3client = AmazonS3ClientBuilder.standard()
                     .withRegion(Regions.SA_EAST_1)
                     .build();
-
-    @Value("infnet-demo")
-    private String bucketName;
+    private final String nomeDoBucket = "infnet-demo";
 	
     private File convertMultiPartToFile(MultipartFile file) throws IOException {
         File convFile = new File(file.getOriginalFilename());
@@ -40,7 +38,7 @@ public class AmazonClient {
     }
 
     private void uploadFileTos3bucket(String fileName, File file) {
-        s3client.putObject(new PutObjectRequest(bucketName, fileName, file)
+        s3client.putObject(new PutObjectRequest(nomeDoBucket, fileName, file)
                         .withCannedAcl(CannedAccessControlList.PublicRead));
     }
 
@@ -50,7 +48,7 @@ public class AmazonClient {
         try {
             File file = convertMultiPartToFile(multipartFile);
             String fileName = generateFileName(multipartFile);
-            fileUrl = "/" + bucketName + "/" + fileName;
+            fileUrl = "/" + nomeDoBucket + "/" + fileName;
              
             uploadFileTos3bucket(fileName, file);
             file.delete();
@@ -62,7 +60,7 @@ public class AmazonClient {
 
     public String deleteFileFromBucketS3(String fileUrl) {
         String fileName = fileUrl.substring(fileUrl.lastIndexOf("/") + 1);
-        s3client.deleteObject(new DeleteObjectRequest(bucketName + "/", fileName));
+        s3client.deleteObject(new DeleteObjectRequest(nomeDoBucket + "/", fileName));
         return "Successfully deleted";
     }
 }
